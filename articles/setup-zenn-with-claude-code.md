@@ -4,7 +4,6 @@ emoji: "⚙️"
 type: "idea"
 topics: ["ClaudeCode", "Zenn", "GitHub", "副業"]
 published: true
-published_at: "2026-06-05 19:00"
 ---
 
 ## はじめに
