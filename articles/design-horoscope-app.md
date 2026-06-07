@@ -9,7 +9,7 @@ published_at: "2026-06-06 19:00"
 
 「取締役エンジニアがClaude Codeで副業を始める実録」第4回です。
 
-前回まで：[第1回](https://zenn.dev/takas/articles/start-side-job-with-claude-code)で副業の戦略を立て、[第2回](https://zenn.dev/takas/articles/select-side-job-from-13-ideas)で13案から2案に絞り、[第3回](https://zenn.dev/takas/articles/setup-zenn-with-claude-code)でZennの執筆環境を整えました。
+前回まで：[第1回](https://zenn.dev/kaminotk4/articles/start-side-job-with-claude-code)で副業の戦略を立て、[第2回](https://zenn.dev/kaminotk4/articles/select-side-job-from-13-ideas)で13案から2案に絞り、[第3回](https://zenn.dev/kaminotk4/articles/setup-zenn-with-claude-code)でZennの執筆環境を整えました。
 
 今回は絞った2案のうち「**ホロスコープ占いアプリ**」について、実装に入る前に設計を固めた過程を書きます。
 
@@ -178,7 +178,7 @@ Claude Codeを使って、STEP1の「自分占い（無料部分）」を作り�
 
 *「取締役エンジニアがClaude Codeで副業を始める実録」シリーズ*
 
-- 第1回：[副業で稼ぐ戦略を立てた話](https://zenn.dev/takas/articles/start-side-job-with-claude-code)
-- 第2回：[13案から2案に絞った話](https://zenn.dev/takas/articles/select-side-job-from-13-ideas)
-- 第3回：[Zennの執筆環境をClaude Codeで整えた話](https://zenn.dev/takas/articles/setup-zenn-with-claude-code)
+- 第1回：[副業で稼ぐ戦略を立てた話](https://zenn.dev/kaminotk4/articles/start-side-job-with-claude-code)
+- 第2回：[13案から2案に絞った話](https://zenn.dev/kaminotk4/articles/select-side-job-from-13-ideas)
+- 第3回：[Zennの執筆環境をClaude Codeで整えた話](https://zenn.dev/kaminotk4/articles/setup-zenn-with-claude-code)
 - 第4回：作る前に決めきる──ホロスコープ占いアプリの設計を固めた話（今回）

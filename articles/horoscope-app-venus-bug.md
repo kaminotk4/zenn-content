@@ -9,7 +9,7 @@ published_at: "2026-06-08 19:00"
 
 「取締役エンジニアがClaude Codeで副業を始める実録」第5回です。
 
-前回まで：[第1回](https://zenn.dev/takas/articles/start-side-job-with-claude-code)で副業の戦略を立て、[第2回](https://zenn.dev/takas/articles/select-side-job-from-13-ideas)で13案から2案に絞り、[第3回](https://zenn.dev/takas/articles/setup-zenn-with-claude-code)でZennの執筆環境を整え、[第4回](https://zenn.dev/takas/articles/design-horoscope-app)でホロスコープ占いアプリの設計を固めました。
+前回まで：[第1回](https://zenn.dev/kaminotk4/articles/start-side-job-with-claude-code)で副業の戦略を立て、[第2回](https://zenn.dev/kaminotk4/articles/select-side-job-from-13-ideas)で13案から2案に絞り、[第3回](https://zenn.dev/kaminotk4/articles/setup-zenn-with-claude-code)でZennの執筆環境を整え、[第4回](https://zenn.dev/kaminotk4/articles/design-horoscope-app)でホロスコープ占いアプリの設計を固めました。
 
 今回はいよいよ実装編です。STEP1「自分占い（無料）」をClaude Codeで作りました。そして、AIに任せた実装に思わぬ落とし穴があったので、その話を書きます。
 
