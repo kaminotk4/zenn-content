@@ -3,7 +3,8 @@ title: "使えるものにする工程 ── STEP1.5 磨き込みの記録"
 emoji: "✨"
 type: "tech"
 topics: ["claudecode", "個人開発", "占いアプリ", "副業"]
-published: false
+published: true
+published_at: 2026-06-10 07:00
 ---
 
 ## はじめに
