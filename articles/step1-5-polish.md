@@ -107,9 +107,8 @@ Claude Codeに `frontend-design` スキルを使ってデザイン方針を提�
 - **星座シンボルを背景装飾に：** 各カードの背景に大きく薄く星座記号を配置（CSS `content: var(--sign-symbol)`）
 - **角丸なし：** `border-radius: 0` の直線的なボーダーで、エディトリアル感を演出
 
-:::message
-**スクリーンショット：** before/afterの比較画像はここに後で追加します
-:::
+![デザイン刷新前](/images/step1-5-before.png)
+![デザイン刷新後](/images/step1-5-after.png)
 
 ## まとめ
 
@@ -133,4 +132,4 @@ UIを外部ツールで評価する方法もありますが、信頼できる人
 
 ---
 
-*このZenn連載は、Claude Codeを使って副業アプリを作る過程をそのまま記録しています。前回の記事はこちら → [#5 実装編「金星の位置がズレていた話」]*
+*このZenn連載は、Claude Codeを使って副業アプリを作る過程をそのまま記録しています。前回の記事はこちら → [#5 実装編「金星の位置がズレていた話」](https://zenn.dev/kaminotk4/articles/horoscope-app-venus-bug)*
