@@ -152,19 +152,18 @@ const SIGNS = [
   'sagittarius', 'capricorn', 'aquarius', 'pisces'
 ];
 
-function validateCompatibilityData(data: CompatibilityData): string[] {
+function validateCompatibilityData(data: CompatibilitySummary): string[] {
   const missing: string[] = [];
+  const sections = ['sun', 'moon', 'venus'] as const;
 
-  for (const sign1 of SIGNS) {
-    for (const sign2 of SIGNS) {
-      const key = `${sign1}_${sign2}`;
-      if (!data[key]) {
-        missing.push(`Missing: ${key}`);
-        continue;
+  for (const section of sections) {
+    for (const sign1 of SIGNS) {
+      for (const sign2 of SIGNS) {
+        const key = `${sign1}_${sign2}`;
+        if (!data[section][key]) {
+          missing.push(`Missing ${section}: ${key}`);
+        }
       }
-      if (!data[key].sun) missing.push(`Missing sun: ${key}`);
-      if (!data[key].moon) missing.push(`Missing moon: ${key}`);
-      if (!data[key].overall) missing.push(`Missing overall: ${key}`);
     }
   }
 
@@ -211,8 +210,8 @@ UX上の工夫：
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(255,255,255,0.8) 60%,
-    rgba(255,255,255,1) 100%
+    rgba(16, 14, 10, 0.55) 40%,
+    #100e0a 85%
   );
 }
 ```
@@ -224,20 +223,16 @@ UX上の工夫：
 開発中は課金フローを毎回通せない。`localhost` アクセス時のみ全文を表示するテストモードを実装した。
 
 ```typescript
-const isTestMode = process.env.NODE_ENV === 'development' ||
-  (typeof window !== 'undefined' && window.location.hostname === 'localhost');
-
-// 結果表示コンポーネント内
-const shouldShowFull = isTestMode || isPaidUser;
+const isTestMode = window.location.hostname === 'localhost';
 ```
 
-本番デプロイ時は `NODE_ENV=production` になるので、テストモードが漏れる心配はない。
+`localhost` 以外ではチラ見せ表示になるので、本番環境でテストモードが漏れる心配はない。
 
 ### sessionStorageでリロード対策
 
-相性診断の結果はURLパラメータとsessionStorageの両方に保存した。
+相性診断の結果はsessionStorageに保存した。
 
-理由：URLだけだと日本語入力の名前がエンコードされて見た目が悪い。sessionStorageだけだと直リンクで共有できない。
+理由：ブラウザリロードや「戻る」操作でも結果を再計算せずに復元できる。
 
 ```typescript
 // 結果ページ表示時
@@ -282,3 +277,7 @@ Zennに書いておけば、未来の自分へのメモになる。そして誰�
 課金壁を作るのは技術的な話だけでなく、価格設定・プラン設計・解約フロー・領収書対応など、ビジネス的な判断も絡んでくる。
 
 その試行錯誤も記事にしていく。
+
+---
+
+このZenn連載は、Claude Codeを使って副業アプリを作る過程をそのまま記録しています。前回の記事はこちら → [#6 使えるものにする工程「STEP1.5 磨き込みの記録」](https://zenn.dev/kaminotk4/articles/step1-5-polish)
