@@ -143,35 +143,9 @@ STEP1.5で細部を磨き終えた。ローディングアニメーション、�
 
 ### 全パターン揃っているか自動検証
 
-生成が終わったら、抜けがないか自動でチェックするスクリプトを書いた。
+生成が終わったら、Claude Codeに「12星座×3天体の全パターンが揃っているか確認してください」と指示した。不足キーがないことをその場で確認してもらえた。
 
-```typescript
-const SIGNS = [
-  'aries', 'taurus', 'gemini', 'cancer',
-  'leo', 'virgo', 'libra', 'scorpio',
-  'sagittarius', 'capricorn', 'aquarius', 'pisces'
-];
-
-function validateCompatibilityData(data: CompatibilitySummary): string[] {
-  const missing: string[] = [];
-  const sections = ['sun', 'moon', 'venus'] as const;
-
-  for (const section of sections) {
-    for (const sign1 of SIGNS) {
-      for (const sign2 of SIGNS) {
-        const key = `${sign1}_${sign2}`;
-        if (!data[section][key]) {
-          missing.push(`Missing ${section}: ${key}`);
-        }
-      }
-    }
-  }
-
-  return missing;
-}
-```
-
-実行して `missing: []` が返ってきた時の達成感は格別だった。432個の穴を埋めきったという事実が、数字で確認できる。
+432個の穴を埋めきったという事実が確認できた時の達成感は格別だった。
 
 ---
 
