@@ -221,23 +221,23 @@ const isTestMode = window.location.hostname === 'localhost';
 
 ### sessionStorageでリロード対策
 
-相性診断の結果はsessionStorageに保存した。
-
-理由：ブラウザリロードや「戻る」操作でも結果を再計算せずに復元できる。
+相性診断の結果はsessionStorageに保存した。画面状態・自分の生年月日・相手の生年月日の3つをそれぞれ別キーで管理している。
 
 ```typescript
-// 結果ページ表示時
-useEffect(() => {
-  const savedResult = sessionStorage.getItem('compatibility_result');
-  if (savedResult) {
-    setResult(JSON.parse(savedResult));
-  }
-}, []);
-
-// 診断実行時
-sessionStorage.setItem('compatibility_result', JSON.stringify(result));
-setScreen('compatibility-result');
+const SS_SCREEN  = 'uranai_screen'   // 現在の画面
+const SS_PERSON1 = 'uranai_person1'  // 自分の生年月日
+const SS_PERSON2 = 'uranai_person2'  // 相手の生年月日
 ```
+
+復元はuseEffectではなく、useStateの初期値にロード関数を直接渡す方式にした。これにより初回レンダリング時のみ実行され、余分な再レンダリングが起きない。
+
+```typescript
+const [screen,  setScreen]  = useState<Screen>(loadScreen);
+const [result,  setResult]  = useState<ReadingResult | null>(loadPerson1);
+const [person2, setPerson2] = useState<BirthData | null>(loadPerson2);
+```
+
+リロードや「戻る」操作でも入力し直しが不要になった。
 
 ### 総合まとめ文の追加
 
