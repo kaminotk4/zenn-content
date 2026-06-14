@@ -3,7 +3,8 @@ title: "相性占いを作る ── STEP2 スコア計算と定型文432パタ�
 emoji: "💫"
 type: "tech"
 topics: ["claudecode", "個人開発", "占いアプリ", "副業"]
-published: false
+published: true
+published_at: 2026-06-15 07:00
 ---
 
 ## はじめに
@@ -168,28 +169,7 @@ UX上の工夫：
 - 太陽・月・金星すべての相性コメントの先頭25文字を表示し、26文字以降をぼかし処理
 - 「詳細を見る（¥300）」ボタンで課金導線へ
 
-```css
-.blurred-content {
-  filter: blur(4px);
-  user-select: none;
-  pointer-events: none;
-  position: relative;
-}
-
-.blurred-content::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(16, 14, 10, 0.55) 40%,
-    #100e0a 85%
-  );
-}
-```
-
-グラデーションのぼかしは「気になるけど読めない」絶妙なラインを狙った。完全に隠すより、チラ見えの方が課金モチベーションが上がる。
+ぼかしは「気になるけど読めない」絶妙なラインを狙った。完全に隠すより、チラ見えの方が課金モチベーションが上がる。
 
 妻に実際に触ってもらったところ、「2行目の途中で切れると先が気になって課金したくなる」というフィードバックをもらった。先頭25文字を表示し26文字以降をぼかす方式にしたことで、途中からじわっとぼやけていく演出になった。
 
@@ -199,13 +179,19 @@ CSSのblurでぼかすだけでは、ブラウザの開発者ツールでHTMLを
 
 そこで未課金時は実際の文章をHTMLに出力せず、先頭25文字を繰り返したダミーテキストをぼかして表示する方式に変更した。
 
-```html
-<span style="filter: blur(5px);">
-  天秤座の穏やかな調和志向と魚座の豊かな感受性が溶け
-  天秤座の穏やかな調和志向と魚座の豊かな感受性が溶け
-  ...（繰り返し）
-</span>
+```tsx
+const previewText = fullText.slice(0, 25);
+const dummyText = previewText.repeat(9);
+
+...
+
+<p className="compat-desc-preview">
+  {previewText}
+  <span className="compat-desc-blur-inline">{dummyText}</span>
+</p>
 ```
+
+ぼかしにはインラインスタイルではなく、CSSクラス `compat-desc-blur-inline` を使用している。スタイルをコンポーネント内に書かず、CSSファイルに切り出すことでコードの見通しが良くなる。
 
 開発者ツールで見ても実際の占い結果は見えない。¥300という低価格ではあるが、課金体験の誠実さとして対応した。
 
@@ -230,6 +216,8 @@ const SS_PERSON2 = 'uranai_person2'  // 相手の生年月日
 ```
 
 復元はuseEffectではなく、useStateの初期値にロード関数を直接渡す方式にした。これにより初回レンダリング時のみ実行され、余分な再レンダリングが起きない。
+
+`loadPerson1` は sessionStorage から生年月日を読み込み、`ReadingResult` を生成して返す関数だ。
 
 ```typescript
 const [screen,  setScreen]  = useState<Screen>(loadScreen);
