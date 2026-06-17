@@ -3,7 +3,8 @@ title: "Claude Codeで¥300課金を実装したら、Vercel Hobbyが商用利�
 emoji: "⚠️"
 type: "tech"
 topics: ["claudecode", "副業", "stripe", "vercel", "個人開発"]
-published: false
+published: true
+published_at: 2026-06-18 07:00
 ---
 
 ## はじめに
