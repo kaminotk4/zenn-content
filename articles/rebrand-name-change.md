@@ -41,7 +41,7 @@ PCで表示確認した。するとなぜか、主張が強すぎると感じた
 
 ただ、PCの画面で見ているだけでは、それが本当の問題なのか、自分の気のせいなのか、確信が持てなかった。とりあえずコミットして、次に進むことにした。
 
-![ひらがな「ほろあい」を主役にしたトップ画面](/images/rebrand-hiragana-before.jpg)
+![ひらがな「ほろあい」を主役にしたトップ画面](https://raw.githubusercontent.com/kaminotk4/zenn-content/main/images/rebrand-hiragana-before.jpg)
 *ひらがな「ほろあい」を主役にした最初の版。なぜか主張が強すぎる気がして、引っかかっていた。*
 
 ---
@@ -66,7 +66,7 @@ PCで表示確認した。するとなぜか、主張が強すぎると感じた
 
 あわせて、ドメインやSNSを英語（horoai）で統一できる利点も得られた。Netlifyのサブドメインも `horoai.netlify.app` に変更した。
 
-![英語「HoroAi」を主役にした現在のトップ画面](/images/rebrand-english-after.jpg)
+![英語「HoroAi」を主役にした現在のトップ画面](https://raw.githubusercontent.com/kaminotk4/zenn-content/main/images/rebrand-english-after.jpg)
 *英語「HoroAi」を主役にした現在の版。ひらがなは読み仮名として下に小さく添えた。違和感が消えた。*
 
 ---
