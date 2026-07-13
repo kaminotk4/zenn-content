@@ -3,7 +3,8 @@ title: "決めたルールが3週間で消えた──Netlifyのクレジット�
 emoji: "🪫"
 type: "idea"
 topics: ["claudecode", "netlify", "個人開発", "副業"]
-published: false
+published: true
+published_at: 2026-07-14 19:00
 ---
 
 ## はじめに
